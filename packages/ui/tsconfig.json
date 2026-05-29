@@ -5,6 +5,8 @@
     "rootDir": ".",
     "strictNullChecks": true,
     "baseUrl": ".",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
     "paths": {
       "#components/*": ["./src/components/*"],
       "#lib/*": ["./src/lib/*"],

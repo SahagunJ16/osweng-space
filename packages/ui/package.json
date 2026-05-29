@@ -9,6 +9,7 @@
     "#hooks/*": "./src/hooks/*.ts"
   },
   "exports": {
+    "./components/layout": "./src/components/layout/index.ts",
     "./components/*": "./src/components/*.tsx",
     "./components/*/*": "./src/components/*/*.tsx",
     "./lib/*": "./src/lib/*.ts",

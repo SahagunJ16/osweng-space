@@ -1,13 +1,13 @@
 import { ArrowUpRight } from "lucide-react";
 
-import { Badge } from "@osweng-space/ui/components/ui/badge";
+import { Badge } from "@osweng-space/ui/components/badge";
 import {
   Card,
   CardContent,
   CardDescription,
   CardHeader,
   CardTitle,
-} from "@osweng-space/ui/components/ui/card";
+} from "@osweng-space/ui/components/card";
 
 import type { HubApp } from "@/config/apps";
 

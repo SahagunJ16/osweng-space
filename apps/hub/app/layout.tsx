@@ -4,6 +4,7 @@ import { AppShell } from "@osweng-space/ui/components/layout/app-shell";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
+import { SiteSidebar } from "@/components/layout/site-sidebar";
 import { ThemeProvider } from "@osweng-space/ui/components/providers/theme-provider";
 
 import "./globals.css";
@@ -33,7 +34,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <AppShell header={<SiteHeader />} footer={<SiteFooter />}>
+          <AppShell
+            header={<SiteHeader />}
+            footer={<SiteFooter />}
+            sidebar={<SiteSidebar />}
+          >
             {children}
           </AppShell>
         </ThemeProvider>

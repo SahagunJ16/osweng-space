@@ -1,7 +1,6 @@
 import Link from "next/link";
 
-import { AppHeader } from "@osweng-space/ui/components/layout/app-header";
-import { MainContainer } from "@osweng-space/ui/components/layout/main-container";
+import { AppHeader, PageContainer } from "@osweng-space/ui/components/layout";
 import { ThemeToggle } from "@osweng-space/ui/components/theme/theme-toggle";
 
 import { siteConfig } from "@/config/site";
@@ -9,13 +8,13 @@ import { siteConfig } from "@/config/site";
 export function SiteHeader() {
   return (
     <AppHeader>
-      <MainContainer className="flex items-center justify-between py-4">
+      <PageContainer className="flex h-14 items-center justify-between py-0">
         <Link href="/" className="font-semibold tracking-tight">
           {siteConfig.name}
         </Link>
 
         <ThemeToggle />
-      </MainContainer>
+      </PageContainer>
     </AppHeader>
   );
 }

@@ -14,7 +14,7 @@
   "aliases": {
     "components": "@/components",
     "utils": "@osweng-space/ui/lib/utils",
-    "ui": "@osweng-space/ui/components/ui",
+    "ui": "@osweng-space/ui/components",
     "lib": "@/lib",
     "hooks": "@/hooks"
   },

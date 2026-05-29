@@ -2,9 +2,9 @@ import type { ComponentProps } from "react";
 
 import { cn } from "#lib/utils";
 
-type MainContainerProps = ComponentProps<"div">;
+type PageContainerProps = ComponentProps<"div">;
 
-export function MainContainer({ className, ...props }: MainContainerProps) {
+export function PageContainer({ className, ...props }: PageContainerProps) {
   return (
     <div
       className={cn("mx-auto w-full max-w-5xl px-6", className)}

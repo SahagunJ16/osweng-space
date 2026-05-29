@@ -7,6 +7,10 @@ import { SiteHeader } from "@/components/layout/site-header";
 import { ThemeProvider } from "@osweng-space/ui/components/providers/theme-provider";
 
 import "./globals.css";
+import { Geist } from "next/font/google";
+import { cn } from "@osweng-space/ui/lib/utils";
+
+const geist = Geist({ subsets: ["latin"], variable: "--font-sans" });
 
 export { metadata } from "@/lib/metadata";
 export { viewport } from "@/lib/viewport";
@@ -17,7 +21,11 @@ type RootLayoutProps = {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html
+      lang="en"
+      suppressHydrationWarning
+      className={cn("font-sans", geist.variable)}
+    >
       <body>
         <ThemeProvider
           attribute="class"
@@ -25,10 +33,8 @@ export default function RootLayout({ children }: RootLayoutProps) {
           enableSystem
           disableTransitionOnChange
         >
-          <AppShell>
-            <SiteHeader />
-            <main className="flex-1">{children}</main>
-            <SiteFooter />
+          <AppShell header={<SiteHeader />} footer={<SiteFooter />}>
+            {children}
           </AppShell>
         </ThemeProvider>
       </body>

@@ -16,5 +16,8 @@
     "utils": "#lib/utils",
     "hooks": "#hooks"
   },
-  "iconLibrary": "lucide"
+  "iconLibrary": "lucide",
+  "menuColor": "default",
+  "menuAccent": "subtle",
+  "rtl": false
 }

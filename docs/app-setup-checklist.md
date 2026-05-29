@@ -219,7 +219,35 @@ If the app should be PWA-ready:
 
 ---
 
-## 11. Update Dev Container
+---
+
+## 11. Configure Testing (optional)
+
+If the app contains testable pure logic (such as utilities, data transformations, or custom validators):
+
+- [ ] Install `vitest` as a dev dependency:
+  ```bash
+  cd apps/<app-name>
+  pnpm add -D vitest
+  ```
+- [ ] Add the `"test": "vitest run"` script to the app's `package.json`.
+- [ ] Create a `vitest.config.ts` in the app root:
+
+  ```ts
+  import { defineConfig } from "vitest/config";
+
+  export default defineConfig({
+    test: {
+      include: ["**/*.test.ts", "**/*.test.tsx"],
+    },
+  });
+  ```
+
+- [ ] Write unit tests alongside source files as `*.test.ts` or `*.test.tsx`.
+
+---
+
+## 12. Update Dev Container
 
 When adding a new app, update `.devcontainer/devcontainer.json` to forward the new port:
 
@@ -237,7 +265,7 @@ When adding a new app, update `.devcontainer/devcontainer.json` to forward the n
 
 ---
 
-## 12. Update Hub App List
+## 13. Update Hub App List
 
 If the new app should appear on the Hub portal, add an entry to `apps/hub/config/apps.ts`:
 
@@ -252,13 +280,13 @@ If the new app should appear on the Hub portal, add an entry to `apps/hub/config
 
 ---
 
-## 13. Update Root README
+## 14. Update Root README
 
 If the project structure changed (new app, new package, new port), update the apps table in `README.md`.
 
 ---
 
-## 14. Install and Verify
+## 15. Install and Verify
 
 Run these from the **monorepo root** after scaffolding:
 
@@ -268,6 +296,9 @@ pnpm install
 
 # Type check + lint + format check
 pnpm verify
+
+# Run all unit tests
+pnpm test
 
 # Build all packages (catch config issues early)
 pnpm build

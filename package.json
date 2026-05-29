@@ -8,6 +8,7 @@
     "format": "prettier --write \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "format:check": "prettier --check \"**/*.{ts,tsx,js,jsx,json,md,css}\"",
     "check-types": "turbo run check-types",
+    "test": "turbo run test",
     "verify": "pnpm check-types && pnpm lint && pnpm format:check",
     "build:clean": "pnpm verify && pnpm build",
     "start:clean": "pnpm verify && pnpm dev"

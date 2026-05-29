@@ -19,6 +19,7 @@ Additionally:
 | ------------------------------------------------- | ----------------------- |
 | Changed app/package config or production behavior | `pnpm build`            |
 | Changed UI or runtime behavior                    | `pnpm dev` (spot-check) |
+| Added or changed logic with unit tests            | `pnpm test`             |
 
 Push only after verification passes.
 
@@ -59,6 +60,18 @@ Use `UPPER_SNAKE_CASE` only for values that are truly constant across the entire
 | `@repo/*` | Workspace package (e.g. `@repo/ui`) | Anywhere in the monorepo |
 
 Always use the correct alias. Never use relative paths to cross app/package boundaries.
+
+---
+
+## Testing
+
+- Use [Vitest](https://vitest.dev/) for unit tests. Do not use Jest.
+- Tests live alongside source files: `src/lib/utils.test.ts`, not in a separate `__tests__` directory.
+- Each package/app that has tests declares its own `"test": "vitest run"` script.
+- `pnpm test` (root) runs all tests via Turborepo.
+- Only test logic that is worth testing — pure functions, data transformations, validation helpers. Do not write tests just to hit coverage numbers.
+- Do not add Playwright or browser E2E tests until an app has enough user-facing behavior to justify the setup cost.
+- Tests must not require real network calls or environment secrets. If mocking is unavoidable, keep it minimal.
 
 ---
 

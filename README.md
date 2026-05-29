@@ -146,6 +146,9 @@ pnpm build:clean
 
 # Run verify, then start the dev server
 pnpm start:clean
+
+# Run unit tests across all packages
+pnpm test
 ```
 
 To run a command scoped to a single app or package, use the `--filter` flag:
@@ -154,6 +157,30 @@ To run a command scoped to a single app or package, use the `--filter` flag:
 pnpm --filter hub dev
 pnpm --filter @repo/ui check-types
 ```
+
+---
+
+## Testing
+
+Unit tests use [Vitest](https://vitest.dev/) and live alongside source files as `*.test.ts`.
+
+```bash
+# Run all tests via Turborepo
+pnpm test
+
+# Run tests scoped to one package
+pnpm --filter @repo/ui test
+```
+
+Current test coverage:
+
+| Package    | Tests                                    |
+| ---------- | ---------------------------------------- |
+| `@repo/ui` | `src/lib/utils.test.ts` — `cn()` utility |
+
+**CI:** The GitHub Actions workflow (`.github/workflows/verify.yml`) runs `pnpm verify` and `pnpm build` on every push to `main` and every pull request. Run `pnpm test` locally before opening a PR.
+
+**Not yet added:** E2E / browser tests (Playwright). Add these when an app has enough user-facing behavior to justify the setup cost.
 
 ---
 

@@ -68,11 +68,24 @@ When generating code inside a shared package (e.g. `packages/ui`), normalize int
 
 ---
 
+## Testing
+
+- Use [Vitest](https://vitest.dev/) for unit tests. Do not use Jest.
+- Tests live alongside source files (`src/lib/utils.test.ts`), not in a separate `__tests__` folder.
+- Each package or app that has tests must declare `"test": "vitest run"` in its own `package.json`.
+- `pnpm test` (root) runs all package tests via Turborepo.
+- Only test pure logic — utilities, data transforms, validation. Do not write render tests or snapshot tests unless the user explicitly asks.
+- Tests must not require real network calls or environment secrets.
+- Do not add Playwright or E2E tests without explicit instruction.
+
+---
+
 ## After Making Changes
 
 1. Run `pnpm verify` (type checking + linting + format check). Fix all errors before finishing.
-2. Run `pnpm build` if you changed any app/package config, `package.json`, or anything that affects production behavior.
-3. Update documentation (`README.md`, the relevant app README, or `docs/app-setup-checklist.md`) if you changed any setup steps, conventions, or configuration.
+2. Run `pnpm test` if you added or changed tested logic.
+3. Run `pnpm build` if you changed any app/package config, `package.json`, or anything that affects production behavior.
+4. Update documentation (`README.md`, the relevant app README, or `docs/app-setup-checklist.md`) if you changed any setup steps, conventions, or configuration.
 
 ---
 

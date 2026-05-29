@@ -35,10 +35,11 @@
         "esbenp.prettier-vscode",
         "dbaeumer.vscode-eslint",
         "bradlc.vscode-tailwindcss",
-        "ms-vscode.vscode-typescript-next",
-        "ms-azuretools.vscode-docker",
+        "editorconfig.editorconfig",
         "mikestead.dotenv",
-        "editorconfig.editorconfig"
+        "ms-vscode.vscode-typescript-next",
+        "streetsidesoftware.code-spell-checker",
+        "yoavbls.pretty-ts-errors"
       ]
     }
   },

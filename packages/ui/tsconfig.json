@@ -2,10 +2,13 @@
   "extends": "@osweng-space/typescript-config/react-library.json",
   "compilerOptions": {
     "outDir": "dist",
+    "rootDir": ".",
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "#/*": ["./src/*"]
+      "#components/*": ["./src/components/*"],
+      "#lib/*": ["./src/lib/*"],
+      "#hooks/*": ["./src/hooks/*"]
     }
   },
   "include": ["src"],

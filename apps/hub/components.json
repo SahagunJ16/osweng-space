@@ -4,15 +4,16 @@
   "rsc": true,
   "tsx": true,
   "tailwind": {
-    "css": "app/globals.css",
+    "config": "",
+    "css": "../../packages/ui/src/styles/globals.css",
     "baseColor": "zinc",
     "cssVariables": true
   },
   "aliases": {
-    "components": "@osweng-space/ui/components",
+    "components": "@/components",
     "utils": "@osweng-space/ui/lib/utils",
-    "ui": "@osweng-space/ui/components",
-    "lib": "@osweng-space/ui/lib",
+    "ui": "@osweng-space/ui/components/ui",
+    "lib": "@/lib",
     "hooks": "@/hooks"
   },
   "iconLibrary": "lucide"

@@ -44,10 +44,10 @@ apps/hub/
 
 ## Shared Packages Consumed
 
-| Package          | Used for                                       |
-| ---------------- | ---------------------------------------------- |
-| `@repo/ui`       | Components, ThemeProvider, ThemeToggle, styles |
-| `@repo/supabase` | Supabase browser client                        |
+| Package          | Used for                                                          |
+| ---------------- | ----------------------------------------------------------------- |
+| `@repo/ui`       | Components, ThemeProvider, ThemeToggle, Layout Primitives, styles |
+| `@repo/supabase` | Supabase browser client                                           |
 
 ### Styles
 
@@ -69,6 +69,15 @@ import { ThemeToggle } from "@repo/ui/components/theme/theme-toggle";
 ```
 
 Do not add local theme components — use the shared ones.
+
+### Layout Primitives
+
+The root layout and site components compose the shared layout primitives from `@repo/ui`:
+
+- `AppShell` wraps the layout content in `app/layout.tsx`
+- `AppHeader` and `MainContainer` structure `SiteHeader`
+- `AppFooter` and `MainContainer` structure `SiteFooter`
+- `MainContainer` aligns the main content in `app/page.tsx`
 
 ## Running Locally
 

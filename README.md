@@ -231,6 +231,17 @@ Theme tokens (colors, radius, spacing, shadows, typography) are defined in `pack
 
 When writing components, use semantic theme tokens (`bg-primary`, `text-accent-foreground`, `bg-destructive`, etc.) rather than hardcoded color scales (e.g. `zinc-900`, `red-600`). This ensures components respond correctly to the active theme and remain reusable across apps.
 
+### Layout Primitives
+
+Shared layout primitives live in `@repo/ui` and are imported directly by each app:
+
+- `AppShell` → `@repo/ui/components/layout/app-shell`
+- `AppHeader` → `@repo/ui/components/layout/app-header`
+- `AppFooter` → `@repo/ui/components/layout/app-footer`
+- `MainContainer` → `@repo/ui/components/layout/main-container`
+
+Each app maintains ownership of its specific header and footer content (e.g., navigation links, site branding), but composes these shared layout primitives to ensure a unified layout structure, styling, and responsiveness across the entire monorepo.
+
 ---
 
 ## Progressive Web App (PWA) Setup

@@ -128,9 +128,10 @@ Do not duplicate Tailwind imports or custom property definitions here.
 
 ### `app/layout.tsx`
 
-Wrap the app with the shared `ThemeProvider`:
+Wrap the app with the shared `ThemeProvider` and the `AppShell` layout primitive:
 
 ```tsx
+import { AppShell } from "@repo/ui/components/layout/app-shell";
 import { ThemeProvider } from "@repo/ui/components/providers/theme-provider";
 import "@/app/globals.css";
 
@@ -148,7 +149,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AppShell>{children}</AppShell>
         </ThemeProvider>
       </body>
     </html>
@@ -167,6 +168,37 @@ apps/<app-name>/
 │   └── <feature>/       # Feature- or page-scoped components
 ├── config/              # App-level constants (site metadata, feature flags)
 └── lib/                 # Utilities, helpers, metadata/viewport exports
+```
+
+### Layout Primitive Composition
+
+Each app defines its own app-specific layout elements (like `SiteHeader`, `SiteFooter`) but composes the shared layout primitives from `@repo/ui` to avoid duplicating structural styling:
+
+- `AppShell` wraps all main contents in `app/layout.tsx`.
+- `AppHeader` and `MainContainer` structure `SiteHeader`.
+- `AppFooter` and `MainContainer` structure `SiteFooter`.
+- `MainContainer` aligns the content in pages (e.g. `app/page.tsx`).
+
+Example `components/layout/site-header.tsx`:
+
+```tsx
+import Link from "next/link";
+import { AppHeader } from "@repo/ui/components/layout/app-header";
+import { MainContainer } from "@repo/ui/components/layout/main-container";
+import { ThemeToggle } from "@repo/ui/components/theme/theme-toggle";
+
+export function SiteHeader() {
+  return (
+    <AppHeader>
+      <MainContainer className="flex items-center justify-between py-4">
+        <Link href="/" className="font-semibold tracking-tight">
+          Your App Name
+        </Link>
+        <ThemeToggle />
+      </MainContainer>
+    </AppHeader>
+  );
+}
 ```
 
 ---

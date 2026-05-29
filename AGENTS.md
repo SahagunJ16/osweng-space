@@ -53,9 +53,13 @@ When generating code inside a shared package (e.g. `packages/ui`), normalize int
   pnpm dlx shadcn@latest add <component>
   ```
 - Do **not** duplicate components inside individual apps if they belong in `@repo/ui`.
-- Use the shared `ThemeProvider` and `ThemeToggle` from `@repo/ui`. Do not create local theme implementations.
+- Use the shared `ThemeProvider`, `ThemeToggle`, and **layout primitives** from `@repo/ui`. Do not create local theme implementations or duplicate layout styling.
   - `ThemeProvider` → `@repo/ui/components/providers/theme-provider`
   - `ThemeToggle` → `@repo/ui/components/theme/theme-toggle`
+  - `AppShell` → `@repo/ui/components/layout/app-shell`
+  - `AppHeader` → `@repo/ui/components/layout/app-header`
+  - `AppFooter` → `@repo/ui/components/layout/app-footer`
+  - `MainContainer` → `@repo/ui/components/layout/main-container`
 - **Always use semantic theme tokens** in component classes (`bg-primary`, `text-accent-foreground`, `bg-destructive`, etc.). Do not hardcode color scales like `zinc-900` or `red-600`. This keeps components theme-aware and portable across apps.
 
 ---

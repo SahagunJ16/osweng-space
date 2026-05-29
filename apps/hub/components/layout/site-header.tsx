@@ -1,8 +1,8 @@
 import Link from "next/link";
 
-import { AppHeader } from "@repo/ui/components/layout/app-header";
-import { MainContainer } from "@repo/ui/components/layout/main-container";
-import { ThemeToggle } from "@repo/ui/components/theme/theme-toggle";
+import { AppHeader } from "@osweng-space/ui/components/layout/app-header";
+import { MainContainer } from "@osweng-space/ui/components/layout/main-container";
+import { ThemeToggle } from "@osweng-space/ui/components/theme/theme-toggle";
 
 import { siteConfig } from "@/config/site";
 

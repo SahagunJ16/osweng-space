@@ -1,15 +1,15 @@
 # hub
 
-The main portal application for Osweng Space. Displays a curated list of Joshua Sahagun's apps, projects, and tools.
+The main portal application for Osweng Space. Displays a curated list of my apps, projects, and tools.
 
 > **Note:** Hub is one implementation example of the monorepo's app pattern, not the universal template. For the canonical setup steps, see [docs/app-setup-checklist.md](../../docs/app-setup-checklist.md).
 
 ## Overview
 
 - **Framework:** Next.js 16 (App Router, Webpack)
-- **Styling:** Tailwind CSS v4 via `@repo/ui` global styles
-- **Components:** shadcn/ui via `@repo/ui`
-- **Theme Support:** Dark/light mode powered by `next-themes` — `ThemeProvider` and `ThemeToggle` are shared from `@repo/ui`
+- **Styling:** Tailwind CSS v4 via `@osweng-space/ui` global styles
+- **Components:** shadcn/ui via `@osweng-space/ui`
+- **Theme Support:** Dark/light mode powered by `next-themes` — `ThemeProvider` and `ThemeToggle` are shared from `@osweng-space/ui`
 - **Port (dev):** `16000`
 
 ## Structure
@@ -19,7 +19,7 @@ apps/hub/
 ├── app/
 │   ├── favicon.ico
 │   ├── fonts/                  # Self-hosted Geist fonts
-│   ├── globals.css             # Imports shared @repo/ui styles
+│   ├── globals.css             # Imports shared @osweng-space/ui styles
 │   ├── layout.tsx              # Root layout (fonts, ThemeProvider, SiteHeader, SiteFooter)
 │   ├── manifest.ts             # PWA manifest generator
 │   └── page.tsx                # Home page
@@ -40,39 +40,39 @@ apps/hub/
 | Alias | Resolves to                            |
 | ----- | -------------------------------------- |
 | `@/*` | App root (`apps/hub/`)                 |
-| `~/*` | Shared UI package (`packages/ui/src/`) |
+| `#/*` | Shared UI package (`packages/ui/src/`) |
 
 ## Shared Packages Consumed
 
-| Package          | Used for                                                          |
-| ---------------- | ----------------------------------------------------------------- |
-| `@repo/ui`       | Components, ThemeProvider, ThemeToggle, Layout Primitives, styles |
-| `@repo/supabase` | Supabase browser client                                           |
+| Package                  | Used for                                                          |
+| ------------------------ | ----------------------------------------------------------------- |
+| `@osweng-space/ui`       | Components, ThemeProvider, ThemeToggle, Layout Primitives, styles |
+| `@osweng-space/supabase` | Supabase browser client                                           |
 
 ### Styles
 
-`app/globals.css` imports the shared styles from `@repo/ui`:
+`app/globals.css` imports the shared styles from `@osweng-space/ui`:
 
 ```css
-@import "@repo/ui/styles/globals.css";
+@import "@osweng-space/ui/styles/globals.css";
 ```
 
 All Tailwind CSS v4 custom properties and base resets are defined in `packages/ui/src/styles/globals.css`.
 
 ### Theme
 
-The `ThemeProvider` wraps the root layout. `ThemeToggle` is used in `SiteHeader`, imported directly from `@repo/ui`:
+The `ThemeProvider` wraps the root layout. `ThemeToggle` is used in `SiteHeader`, imported directly from `@osweng-space/ui`:
 
 ```tsx
-import { ThemeProvider } from "@repo/ui/components/providers/theme-provider";
-import { ThemeToggle } from "@repo/ui/components/theme/theme-toggle";
+import { ThemeProvider } from "@osweng-space/ui/components/providers/theme-provider";
+import { ThemeToggle } from "@osweng-space/ui/components/theme/theme-toggle";
 ```
 
 Do not add local theme components — use the shared ones.
 
 ### Layout Primitives
 
-The root layout and site components compose the shared layout primitives from `@repo/ui`:
+The root layout and site components compose the shared layout primitives from `@osweng-space/ui`:
 
 - `AppShell` wraps the layout content in `app/layout.tsx`
 - `AppHeader` and `MainContainer` structure `SiteHeader`

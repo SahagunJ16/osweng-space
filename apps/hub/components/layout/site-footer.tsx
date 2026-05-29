@@ -1,5 +1,5 @@
-import { AppFooter } from "@repo/ui/components/layout/app-footer";
-import { MainContainer } from "@repo/ui/components/layout/main-container";
+import { AppFooter } from "@osweng-space/ui/components/layout/app-footer";
+import { MainContainer } from "@osweng-space/ui/components/layout/main-container";
 
 import { siteConfig } from "@/config/site";
 

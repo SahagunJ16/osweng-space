@@ -4,8 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: "Osweng Space",
     short_name: "Osweng",
-    description:
-      "Joshua Sahagun’s personal hub for apps, projects, tools, and resources.",
+    description: "My personal hub for apps, projects, tools, and resources.",
     start_url: "/",
     scope: "/",
     display: "standalone",

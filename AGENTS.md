@@ -35,13 +35,13 @@ This file defines mandatory rules for AI coding agents (Copilot, Cursor, Gemini,
 
 Always use the correct alias. Never use relative paths to cross app/package boundaries.
 
-| Alias     | Resolves to                         | Where it applies         |
-| --------- | ----------------------------------- | ------------------------ |
-| `@/*`     | App root (e.g. `apps/hub/`)         | Inside each app          |
-| `~/*`     | Package root `src/` directory       | Inside shared packages   |
-| `@repo/*` | Workspace package (e.g. `@repo/ui`) | Anywhere in the monorepo |
+| Alias             | Resolves to                                 | Where it applies         |
+| ----------------- | ------------------------------------------- | ------------------------ |
+| `@/*`             | App root (e.g. `apps/hub/`)                 | Inside each app          |
+| `#/*`             | Package root `src/` directory               | Inside shared packages   |
+| `@osweng-space/*` | Workspace package (e.g. `@osweng-space/ui`) | Anywhere in the monorepo |
 
-When generating code inside a shared package (e.g. `packages/ui`), normalize internal imports to `~/*`.
+When generating code inside a shared package (e.g. `packages/ui`), normalize internal imports to `#/*`.
 
 ---
 
@@ -52,14 +52,14 @@ When generating code inside a shared package (e.g. `packages/ui`), normalize int
   cd packages/ui
   pnpm dlx shadcn@latest add <component>
   ```
-- Do **not** duplicate components inside individual apps if they belong in `@repo/ui`.
-- Use the shared `ThemeProvider`, `ThemeToggle`, and **layout primitives** from `@repo/ui`. Do not create local theme implementations or duplicate layout styling.
-  - `ThemeProvider` → `@repo/ui/components/providers/theme-provider`
-  - `ThemeToggle` → `@repo/ui/components/theme/theme-toggle`
-  - `AppShell` → `@repo/ui/components/layout/app-shell`
-  - `AppHeader` → `@repo/ui/components/layout/app-header`
-  - `AppFooter` → `@repo/ui/components/layout/app-footer`
-  - `MainContainer` → `@repo/ui/components/layout/main-container`
+- Do **not** duplicate components inside individual apps if they belong in `@osweng-space/ui`.
+- Use the shared `ThemeProvider`, `ThemeToggle`, and **layout primitives** from `@osweng-space/ui`. Do not create local theme implementations or duplicate layout styling.
+  - `ThemeProvider` → `@osweng-space/ui/components/providers/theme-provider`
+  - `ThemeToggle` → `@osweng-space/ui/components/theme/theme-toggle`
+  - `AppShell` → `@osweng-space/ui/components/layout/app-shell`
+  - `AppHeader` → `@osweng-space/ui/components/layout/app-header`
+  - `AppFooter` → `@osweng-space/ui/components/layout/app-footer`
+  - `MainContainer` → `@osweng-space/ui/components/layout/main-container`
 - **Always use semantic theme tokens** in component classes (`bg-primary`, `text-accent-foreground`, `bg-destructive`, etc.). Do not hardcode color scales like `zinc-900` or `red-600`. This keeps components theme-aware and portable across apps.
 
 ---
@@ -68,7 +68,7 @@ When generating code inside a shared package (e.g. `packages/ui`), normalize int
 
 - Tailwind CSS v4 is **CSS-first** — there is no `tailwind.config.js`. Do not create one.
 - Global styles and custom properties live in `packages/ui/src/styles/globals.css`. This file defines the **Caffeine** theme — oklch-based color tokens, chart colors, sidebar tokens, spacing, shadows, and typography for both light and dark modes.
-- Each app imports shared styles via `@import "@repo/ui/styles/globals.css";` in its own `app/globals.css`. Do not duplicate style definitions or redefine tokens locally.
+- Each app imports shared styles via `@import "@osweng-space/ui/styles/globals.css";` in its own `app/globals.css`. Do not duplicate style definitions or redefine tokens locally.
 
 ---
 

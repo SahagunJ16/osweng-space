@@ -56,15 +56,15 @@ Set the package name, scripts, Node engine requirement, and workspace dependenci
     "node": ">=22"
   },
   "dependencies": {
-    "@repo/ui": "workspace:*",
+    "@osweng-space/ui": "workspace:*",
     "next": "<version>",
     "react": "^19.x.x",
     "react-dom": "^19.x.x",
     "tailwindcss": "^4.x.x"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@osweng-space/eslint-config": "workspace:*",
+    "@osweng-space/typescript-config": "workspace:*",
     "typescript": "<version>"
   }
 }
@@ -78,12 +78,12 @@ Add a `tsconfig.json` extending the shared Next.js preset:
 
 ```json
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@osweng-space/typescript-config/nextjs.json",
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "~/*": ["../../packages/ui/src/*"]
+      "#/*": ["../../packages/ui/src/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
@@ -98,7 +98,7 @@ Add a `tsconfig.json` extending the shared Next.js preset:
 Add an `eslint.config.mjs` extending the shared flat config:
 
 ```js
-import { nextJsConfig } from "@repo/eslint-config/next-js";
+import { nextJsConfig } from "@osweng-space/eslint-config/next-js";
 /** @type {import("eslint").Linter.Config[]} */
 export default [...nextJsConfig];
 ```
@@ -121,7 +121,7 @@ apps/<app-name>/
 ### `app/globals.css`
 
 ```css
-@import "@repo/ui/styles/globals.css";
+@import "@osweng-space/ui/styles/globals.css";
 ```
 
 Do not duplicate Tailwind imports or custom property definitions here.
@@ -131,8 +131,8 @@ Do not duplicate Tailwind imports or custom property definitions here.
 Wrap the app with the shared `ThemeProvider` and the `AppShell` layout primitive:
 
 ```tsx
-import { AppShell } from "@repo/ui/components/layout/app-shell";
-import { ThemeProvider } from "@repo/ui/components/providers/theme-provider";
+import { AppShell } from "@osweng-space/ui/components/layout/app-shell";
+import { ThemeProvider } from "@osweng-space/ui/components/providers/theme-provider";
 import "@/app/globals.css";
 
 export default function RootLayout({
@@ -172,7 +172,7 @@ apps/<app-name>/
 
 ### Layout Primitive Composition
 
-Each app defines its own app-specific layout elements (like `SiteHeader`, `SiteFooter`) but composes the shared layout primitives from `@repo/ui` to avoid duplicating structural styling:
+Each app defines its own app-specific layout elements (like `SiteHeader`, `SiteFooter`) but composes the shared layout primitives from `@osweng-space/ui` to avoid duplicating structural styling:
 
 - `AppShell` wraps all main contents in `app/layout.tsx`.
 - `AppHeader` and `MainContainer` structure `SiteHeader`.
@@ -183,9 +183,9 @@ Example `components/layout/site-header.tsx`:
 
 ```tsx
 import Link from "next/link";
-import { AppHeader } from "@repo/ui/components/layout/app-header";
-import { MainContainer } from "@repo/ui/components/layout/main-container";
-import { ThemeToggle } from "@repo/ui/components/theme/theme-toggle";
+import { AppHeader } from "@osweng-space/ui/components/layout/app-header";
+import { MainContainer } from "@osweng-space/ui/components/layout/main-container";
+import { ThemeToggle } from "@osweng-space/ui/components/theme/theme-toggle";
 
 export function SiteHeader() {
   return (
@@ -205,10 +205,10 @@ export function SiteHeader() {
 
 ## 8. Theme Toggle (optional)
 
-If the app uses the standard theme toggle, import `ThemeToggle` directly from `@repo/ui`:
+If the app uses the standard theme toggle, import `ThemeToggle` directly from `@osweng-space/ui`:
 
 ```tsx
-import { ThemeToggle } from "@repo/ui/components/theme/theme-toggle";
+import { ThemeToggle } from "@osweng-space/ui/components/theme/theme-toggle";
 ```
 
 Do not create a local theme toggle component.

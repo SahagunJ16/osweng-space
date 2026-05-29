@@ -11,8 +11,8 @@
     "check-types": "next typegen && tsc --noEmit"
   },
   "dependencies": {
-    "@repo/supabase": "workspace:^",
-    "@repo/ui": "workspace:*",
+    "@osweng-space/supabase": "workspace:^",
+    "@osweng-space/ui": "workspace:*",
     "@tailwindcss/postcss": "^4.3.0",
     "lucide-react": "^1.16.0",
     "next": "16.2.0",
@@ -21,8 +21,8 @@
     "tailwindcss": "^4.3.0"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@osweng-space/eslint-config": "workspace:*",
+    "@osweng-space/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "@types/react": "19.2.2",
     "@types/react-dom": "19.2.2",

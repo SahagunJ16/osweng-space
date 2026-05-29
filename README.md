@@ -1,6 +1,6 @@
 # Osweng Space
 
-A unified monorepo and dashboard gateway for Joshua Sahagun's apps, projects, tools, and digital resources.
+A unified monorepo and dashboard gateway for my apps, projects, tools, and digital resources.
 
 ## Technologies
 
@@ -26,10 +26,10 @@ osweng-space/
 ├── apps/
 │   └── hub/                      # Next.js 16 portal — main landing page (port 16000)
 ├── packages/
-│   ├── ui/                       # Shared React component library (@repo/ui)
-│   ├── supabase/                 # Shared Supabase client helpers (@repo/supabase)
-│   ├── eslint-config/            # Shared ESLint flat configs (@repo/eslint-config)
-│   └── typescript-config/       # Shared tsconfig presets (@repo/typescript-config)
+│   ├── ui/                       # Shared React component library (@osweng-space/ui)
+│   ├── supabase/                 # Shared Supabase client helpers (@osweng-space/supabase)
+│   ├── eslint-config/            # Shared ESLint flat configs (@osweng-space/eslint-config)
+│   └── typescript-config/       # Shared tsconfig presets (@osweng-space/typescript-config)
 ├── .env.example                  # Template for required environment variables
 ├── prettier.config.mjs           # Root Prettier configuration
 ├── pnpm-workspace.yaml           # pnpm workspace definition
@@ -48,12 +48,12 @@ Future apps will follow the same structure. See [docs/app-setup-checklist.md](do
 
 ### Shared Packages
 
-| Package                   | Description                                                                                                                                              |
-| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `@repo/ui`                | Component library built on Tailwind CSS v4, React 19, and shadcn/ui. Exports components, a shared `ThemeProvider`, `ThemeToggle`, and global CSS styles. |
-| `@repo/supabase`          | Exports `createBrowserSupabaseClient()` — a thin wrapper around the Supabase JS client.                                                                  |
-| `@repo/eslint-config`     | ESLint 9 flat configs for Next.js apps and generic TypeScript packages.                                                                                  |
-| `@repo/typescript-config` | Base `tsconfig.json` presets (`base.json`, `nextjs.json`, `react-library.json`).                                                                         |
+| Package                           | Description                                                                                                                                              |
+| --------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `@osweng-space/ui`                | Component library built on Tailwind CSS v4, React 19, and shadcn/ui. Exports components, a shared `ThemeProvider`, `ThemeToggle`, and global CSS styles. |
+| `@osweng-space/supabase`          | Exports `createBrowserSupabaseClient()` — a thin wrapper around the Supabase JS client.                                                                  |
+| `@osweng-space/eslint-config`     | ESLint 9 flat configs for Next.js apps and generic TypeScript packages.                                                                                  |
+| `@osweng-space/typescript-config` | Base `tsconfig.json` presets (`base.json`, `nextjs.json`, `react-library.json`).                                                                         |
 
 ---
 
@@ -155,7 +155,7 @@ To run a command scoped to a single app or package, use the `--filter` flag:
 
 ```bash
 pnpm --filter hub dev
-pnpm --filter @repo/ui check-types
+pnpm --filter @osweng-space/ui check-types
 ```
 
 ---
@@ -169,14 +169,14 @@ Unit tests use [Vitest](https://vitest.dev/) and live alongside source files as 
 pnpm test
 
 # Run tests scoped to one package
-pnpm --filter @repo/ui test
+pnpm --filter @osweng-space/ui test
 ```
 
 Current test coverage:
 
-| Package    | Tests                                    |
-| ---------- | ---------------------------------------- |
-| `@repo/ui` | `src/lib/utils.test.ts` — `cn()` utility |
+| Package            | Tests                                    |
+| ------------------ | ---------------------------------------- |
+| `@osweng-space/ui` | `src/lib/utils.test.ts` — `cn()` utility |
 
 **CI:** The GitHub Actions workflow (`.github/workflows/verify.yml`) runs `pnpm verify` and `pnpm build` on every push to `main` and every pull request. Run `pnpm test` locally before opening a PR.
 
@@ -186,11 +186,11 @@ Current test coverage:
 
 ## Import Conventions
 
-| Alias     | Resolves to                         | Where it applies         |
-| --------- | ----------------------------------- | ------------------------ |
-| `@/*`     | App root (e.g. `apps/hub/`)         | Inside each app          |
-| `~/*`     | Package root `src/` directory       | Inside shared packages   |
-| `@repo/*` | Workspace package (e.g. `@repo/ui`) | Anywhere in the monorepo |
+| Alias             | Resolves to                                 | Where it applies         |
+| ----------------- | ------------------------------------------- | ------------------------ |
+| `@/*`             | App root (e.g. `apps/hub/`)                 | Inside each app          |
+| `#/*`             | Package root `src/` directory               | Inside shared packages   |
+| `@osweng-space/*` | Workspace package (e.g. `@osweng-space/ui`) | Anywhere in the monorepo |
 
 ---
 
@@ -204,7 +204,7 @@ Global CSS (custom properties, base resets, Tailwind imports) is defined in `pac
 
 ```css
 /* apps/<app>/app/globals.css */
-@import "@repo/ui/styles/globals.css";
+@import "@osweng-space/ui/styles/globals.css";
 ```
 
 ### shadcn/ui
@@ -220,10 +220,10 @@ The `components.json` in `packages/ui` sets `"tailwind.config"` to an empty stri
 
 ### Theme
 
-Shared theme components live in `@repo/ui` and are imported directly by each app:
+Shared theme components live in `@osweng-space/ui` and are imported directly by each app:
 
-- `ThemeProvider` → `@repo/ui/components/providers/theme-provider`
-- `ThemeToggle` → `@repo/ui/components/theme/theme-toggle`
+- `ThemeProvider` → `@osweng-space/ui/components/providers/theme-provider`
+- `ThemeToggle` → `@osweng-space/ui/components/theme/theme-toggle`
 
 Individual apps should not duplicate theme logic.
 
@@ -233,12 +233,12 @@ When writing components, use semantic theme tokens (`bg-primary`, `text-accent-f
 
 ### Layout Primitives
 
-Shared layout primitives live in `@repo/ui` and are imported directly by each app:
+Shared layout primitives live in `@osweng-space/ui` and are imported directly by each app:
 
-- `AppShell` → `@repo/ui/components/layout/app-shell`
-- `AppHeader` → `@repo/ui/components/layout/app-header`
-- `AppFooter` → `@repo/ui/components/layout/app-footer`
-- `MainContainer` → `@repo/ui/components/layout/main-container`
+- `AppShell` → `@osweng-space/ui/components/layout/app-shell`
+- `AppHeader` → `@osweng-space/ui/components/layout/app-header`
+- `AppFooter` → `@osweng-space/ui/components/layout/app-footer`
+- `MainContainer` → `@osweng-space/ui/components/layout/main-container`
 
 Each app maintains ownership of its specific header and footer content (e.g., navigation links, site branding), but composes these shared layout primitives to ensure a unified layout structure, styling, and responsiveness across the entire monorepo.
 

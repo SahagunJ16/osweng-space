@@ -1,10 +1,10 @@
 import type { ReactNode } from "react";
 
-import { AppShell } from "@repo/ui/components/layout/app-shell";
+import { AppShell } from "@osweng-space/ui/components/layout/app-shell";
 
 import { SiteFooter } from "@/components/layout/site-footer";
 import { SiteHeader } from "@/components/layout/site-header";
-import { ThemeProvider } from "@repo/ui/components/providers/theme-provider";
+import { ThemeProvider } from "@osweng-space/ui/components/providers/theme-provider";
 
 import "./globals.css";
 

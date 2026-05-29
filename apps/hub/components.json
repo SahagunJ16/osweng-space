@@ -9,10 +9,10 @@
     "cssVariables": true
   },
   "aliases": {
-    "components": "@repo/ui/components",
-    "utils": "@repo/ui/lib/utils",
-    "ui": "@repo/ui/components",
-    "lib": "@repo/ui/lib",
+    "components": "@osweng-space/ui/components",
+    "utils": "@osweng-space/ui/lib/utils",
+    "ui": "@osweng-space/ui/components",
+    "lib": "@osweng-space/ui/lib",
     "hooks": "@/hooks"
   },
   "iconLibrary": "lucide"

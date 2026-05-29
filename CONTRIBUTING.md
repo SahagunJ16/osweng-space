@@ -31,7 +31,7 @@ Push only after verification passes.
 - **Keep it simple and readable.** Prefer explicit code over clever abstractions. Optimize for the next reader.
 - **No unnecessary abstractions.** Don't create shared utilities, hooks, or wrappers prematurely. Add them when there is genuine reuse across two or more callers.
 - **App-specific logic stays in the app.** Don't push app-specific concerns into shared packages.
-- **Reusable UI and Layout Primitives live in `packages/ui`.** If a component or layout structure (e.g. shell, header, footer, main container) is used by more than one app, or establishes a baseline standard pattern for future apps, it belongs in `@repo/ui`. Individual apps should compose these shared primitives instead of duplicating structural styles.
+- **Reusable UI and Layout Primitives live in `packages/ui`.** If a component or layout structure (e.g. shell, header, footer, main container) is used by more than one app, or establishes a baseline standard pattern for future apps, it belongs in `@osweng-space/ui`. Individual apps should compose these shared primitives instead of duplicating structural styles.
 - **Shared Supabase helpers live in `packages/supabase`.** Keep the Supabase client wrapper and any shared data helpers there.
 - **Use semantic theme tokens in components.** Write `bg-primary`, `text-accent-foreground`, `bg-destructive`, etc. — not hardcoded color scales like `zinc-900` or `red-600`. This keeps components theme-aware and reusable across apps.
 
@@ -53,11 +53,11 @@ Use `UPPER_SNAKE_CASE` only for values that are truly constant across the entire
 
 ## Import Conventions
 
-| Alias     | Resolves to                         | Where it applies         |
-| --------- | ----------------------------------- | ------------------------ |
-| `@/*`     | App root (e.g. `apps/hub/`)         | Inside each app          |
-| `~/*`     | Package root `src/` directory       | Inside shared packages   |
-| `@repo/*` | Workspace package (e.g. `@repo/ui`) | Anywhere in the monorepo |
+| Alias             | Resolves to                                 | Where it applies         |
+| ----------------- | ------------------------------------------- | ------------------------ |
+| `@/*`             | App root (e.g. `apps/hub/`)                 | Inside each app          |
+| `#/*`             | Package root `src/` directory               | Inside shared packages   |
+| `@osweng-space/*` | Workspace package (e.g. `@osweng-space/ui`) | Anywhere in the monorepo |
 
 Always use the correct alias. Never use relative paths to cross app/package boundaries.
 

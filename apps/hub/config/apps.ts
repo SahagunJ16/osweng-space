@@ -16,7 +16,7 @@ export const hubApps: HubApp[] = [
   {
     name: "Stash",
     description:
-      "Joshua Sahagun’s personal stash of useful links, tools, references, and resources.",
+      "My personal stash of useful links, tools, references, and resources.",
     href: "https://stash.joshuasahagun.com",
     status: "planned",
   },

@@ -1,4 +1,4 @@
-import { MainContainer } from "@repo/ui/components/layout/main-container";
+import { MainContainer } from "@osweng-space/ui/components/layout/main-container";
 
 import { AppGrid } from "@/components/home/app-grid";
 import { HeroSection } from "@/components/home/hero-section";

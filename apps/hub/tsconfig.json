@@ -1,5 +1,5 @@
 {
-  "extends": "@repo/typescript-config/nextjs.json",
+  "extends": "@osweng-space/typescript-config/nextjs.json",
   "compilerOptions": {
     "plugins": [
       {
@@ -10,7 +10,7 @@
     "baseUrl": ".",
     "paths": {
       "@/*": ["./*"],
-      "~/*": ["../../packages/ui/src/*"]
+      "#/*": ["../../packages/ui/src/*"]
     }
   },
   "include": [

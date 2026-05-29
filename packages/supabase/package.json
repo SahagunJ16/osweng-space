@@ -1,5 +1,5 @@
 {
-  "name": "@repo/supabase",
+  "name": "@osweng-space/supabase",
   "version": "0.0.0",
   "private": true,
   "exports": {
@@ -13,8 +13,8 @@
     "@supabase/supabase-js": "^2.49.1"
   },
   "devDependencies": {
-    "@repo/eslint-config": "workspace:*",
-    "@repo/typescript-config": "workspace:*",
+    "@osweng-space/eslint-config": "workspace:*",
+    "@osweng-space/typescript-config": "workspace:*",
     "@types/node": "^22.15.3",
     "eslint": "^9.39.1",
     "typescript": "5.9.2"

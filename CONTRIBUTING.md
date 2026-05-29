@@ -79,7 +79,7 @@ Always use the correct alias. Never use relative paths to cross app/package boun
 
 - If an app or package **directly imports** a dependency, it must declare that dependency in its own `package.json`.
 - Do not rely on transitive dependencies from other workspace packages.
-- Shared UI dependencies (Radix, `class-variance-authority`, `tailwind-merge`, etc.) belong in `packages/ui/package.json`.
+- Shared UI dependencies (`class-variance-authority`, `tailwind-merge`, etc.) belong in `packages/ui/package.json`.
 - App-specific dependencies belong in that app's `package.json`.
 - Explain why before adding a new dependency — prefer the platform and existing packages.
 

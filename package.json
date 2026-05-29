@@ -2,6 +2,8 @@
   "name": "osweng-space",
   "private": true,
   "scripts": {
+    "clean": "rm -rf node_modules apps/*/node_modules packages/*/node_modules .turbo apps/*/.turbo packages/*/.turbo apps/*/.next packages/*/dist",
+    "reset": "pnpm clean && pnpm install",
     "build": "turbo run build",
     "dev": "turbo run dev",
     "lint": "turbo run lint",

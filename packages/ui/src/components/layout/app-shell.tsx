@@ -1,5 +1,3 @@
-// packages/ui/src/components/layout/app-shell.tsx
-
 import type { ReactNode } from "react";
 
 import { cn } from "#lib/utils";
@@ -25,11 +23,7 @@ export function AppShell({
         {header}
 
         <div className="flex flex-1">
-          {sidebar ? (
-            <aside className="hidden w-64 shrink-0 border-r border-border bg-background md:block">
-              {sidebar}
-            </aside>
-          ) : null}
+          {sidebar}
 
           <main className="min-w-0 flex-1">{children}</main>
         </div>

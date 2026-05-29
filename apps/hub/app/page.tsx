@@ -1,4 +1,4 @@
-import { PageContainer } from "@osweng-space/ui/components/layout/page-container";
+import { PageContainer } from "@osweng-space/ui/components/layout";
 
 import { AppGrid } from "@/components/home/app-grid";
 import { HeroSection } from "@/components/home/hero-section";
